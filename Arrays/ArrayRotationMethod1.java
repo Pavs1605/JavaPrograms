@@ -1,3 +1,5 @@
+//Below program takes time complexity as n*d
+
 import java.util.*;
 import java.lang.*;
 import java.io.*;
