@@ -1,0 +1,59 @@
+/********************************************
+
+Input:
+
+2
+3
+1 2 3 4 5 6 7 8 9
+2
+56 96 91 54
+
+Output:
+
+7 4 1 8 5 2 9 6 3
+91 56 54 96
+
+https://practice.geeksforgeeks.org/problems/rotate-a-2d-array-without-using-extra-space/0
+***************************************************/
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class Test
+ {
+	public static void main (String[] args)
+	 {
+	 try{
+	 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	 String testCases = br.readLine();
+	 int testVal = Integer.parseInt(testCases);
+	 
+	 for(int i=0;i<testVal;i++)
+	 {
+	     int arrSize = Integer.parseInt(br.readLine());
+	     String val[] = (br.readLine()).split(" ");
+	     int valSize = val.length;
+	       String temp="";
+	     for(int j=0;j<arrSize;j++)
+	     {
+	       
+	         for(int k=j;k<valSize;k=k+arrSize)
+	         {
+	            temp = temp + val[k] + " ";
+	         }
+	         List<String> ai = Arrays.asList(temp.split(" "));
+	         Collections.reverse(ai);
+	          for(String s : ai)
+	          System.out.print(s + " ");
+	          
+	          temp="";
+	     }
+	     System.out.println();
+	 }
+	 }
+	 catch(Exception e)
+	 {
+	  e.printStackTrace();
+	 }
+	 }
+}
