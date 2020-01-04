@@ -1,4 +1,5 @@
 /****************************************************************************
+https://practice.geeksforgeeks.org/problems/equilibrium-point/0
 //Example:
 Input:
 2
