@@ -1,0 +1,40 @@
+//https://practice.geeksforgeeks.org/problems/nth-node-from-end-of-linked-list/1
+
+int getNthFromLast(Node head, int n)
+    {
+        int count=0;
+        int finalVal=0;
+        Node temp = head;
+    	// Your code here	
+    	while(temp != null)
+    	{
+    	    temp = temp.next;
+    	    count++;
+    	}
+    	
+    	int firstPos = count-n;
+    	count =0;
+    		while(head != null)
+    	{
+    	  //  System.out.println("data" + head.data + "count" + count);
+    	    if(count == firstPos)
+    	    {
+    	       finalVal = head.data;
+    	       break;
+    	        
+    	    }
+    	    else
+    	    {
+    	    
+    	    head = head.next;
+    	    count++;
+    	    }
+    	  
+    	}
+    	if (finalVal == 0)
+    	return -1;
+        else
+        return finalVal;
+    
+    	
+    }
