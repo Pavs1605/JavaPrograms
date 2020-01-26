@@ -1,0 +1,83 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.samples;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+
+/**
+ *
+ * @author psambamu
+ */
+public class BFS {
+    
+   
+    public static class Graph
+            {
+         int vertex;
+    LinkedList<Integer> arr[];
+        Graph(int vertices)
+        {
+            this .vertex = vertices;
+            
+            arr = new LinkedList[vertex];
+            
+            for(int i=0;i<vertex;i++)
+                arr[i] = new LinkedList();
+        }
+        
+    }
+    
+    public static void addEdge(Graph g, int src, int dest)
+    {
+        g.arr[src].add(dest);
+      //  g.arr[dest].add(src);
+    }
+    
+    public static void BFS(int starting, Graph graph)
+    {
+        boolean visited[] = new boolean[graph.vertex];
+        LinkedList<Integer> list = new LinkedList<Integer>();
+        
+        list.add(starting);
+        visited[starting] = true;
+        
+        while(list.size() != 0)
+        {
+            starting = list.poll();
+            System.out.print(starting + " ");
+            
+            Iterator<Integer> iter = graph.arr[starting].listIterator();
+            while(iter.hasNext()){
+                
+                int nextNode = iter.next();
+                while(!visited[nextNode])
+                {
+                    list.add(nextNode);
+                    visited[nextNode] = true;
+                    
+                }
+            }
+        }
+    }
+    
+    public static void main(String args[]) 
+    { 
+        Graph g = new Graph(4); 
+  
+        addEdge(g,0, 1); 
+        addEdge(g,0, 2); 
+        addEdge(g,1, 2); 
+        addEdge(g,2, 0); 
+        addEdge(g,2, 3); 
+        addEdge(g,3, 3); 
+  
+        System.out.println("Following is Breadth First Traversal "+ 
+                           "(starting from vertex 2)"); 
+  
+        BFS(2,g); 
+    } 
+}
